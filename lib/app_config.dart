@@ -29,7 +29,7 @@ class AppConfig {
 /// The default configuration of the app.
 AppConfig get defaultConfig {
   return new AppConfig(
-    appName: 'Charts Gallery',
+    appName: 'Charts Gallery - cerbero.DEV',
     appLink: '',
     theme: new ThemeData(
       brightness: Brightness.light,

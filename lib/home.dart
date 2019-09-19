@@ -17,7 +17,7 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 import 'dart:developer';
 import 'app_config.dart';
-import 'drawer.dart';
+// import 'drawer.dart';
 import 'a11y/a11y_gallery.dart' as a11y show buildGallery;
 import 'bar_chart/bar_gallery.dart' as bar show buildGallery;
 import 'time_series_chart/time_series_gallery.dart' as time_series
@@ -107,10 +107,10 @@ class Home extends StatelessWidget {
     _setupPerformance();
 
     return new Scaffold(
-      drawer: new GalleryDrawer(
-          showPerformanceOverlay: showPerformanceOverlay,
-          onShowPerformanceOverlayChanged: onShowPerformanceOverlayChanged),
-      appBar: new AppBar(title: new Text(defaultConfig.appName)),
+      //drawer: new GalleryDrawer(
+      //    showPerformanceOverlay: showPerformanceOverlay,
+      //    onShowPerformanceOverlayChanged: onShowPerformanceOverlayChanged),
+      appBar: new AppBar(title: new Text(defaultConfig.appName), backgroundColor: Color(0xFF42A5F5)),
       body: new ListView(padding: kMaterialListPadding, children: galleries),
     );
   }
