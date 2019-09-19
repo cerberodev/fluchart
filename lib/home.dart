@@ -110,7 +110,7 @@ class Home extends StatelessWidget {
       //drawer: new GalleryDrawer(
       //    showPerformanceOverlay: showPerformanceOverlay,
       //    onShowPerformanceOverlayChanged: onShowPerformanceOverlayChanged),
-      appBar: new AppBar(title: new Text(defaultConfig.appName), backgroundColor: Color(0xFF42A5F5)),
+      appBar: new AppBar(title: new Text(defaultConfig.appName)),
       body: new ListView(padding: kMaterialListPadding, children: galleries),
     );
   }

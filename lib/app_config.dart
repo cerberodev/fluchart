@@ -33,7 +33,7 @@ AppConfig get defaultConfig {
     appLink: '',
     theme: new ThemeData(
       brightness: Brightness.light,
-      primarySwatch: Colors.lightBlue,
+      primarySwatch: Colors.deepPurple,
     ),
     showPerformanceOverlay: false,
   );
