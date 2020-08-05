@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="fluchart">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/png" href="favicon.jpg"/>
+
+  <title>fluchart</title>
+  <link rel="manifest" href="manifest.json">
+  <style id="preloader-style">
+    .loader {
+      position: absolute;
+      margin: 0 auto;
+      width: 100px;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+    .loader:before {
+      content: "";
+      display: block;
+      padding-top: 50%;
+    }
+
+    .circular {
+      animation: rotate 2s linear infinite;
+      height: 100%;
+      transform-origin: center center;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+
+    .path {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+      animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+      stroke-linecap: round;
+    }
+
+    @keyframes rotate {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes dash {
+      0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+      }
+      50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px;
+      }
+      100% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124px;
+      }
+    }
+
+    @keyframes color {
+      100%,
+      0% {
+        stroke: #f84950;
+      }
+      33% {
+        stroke: #1b07b5;
+      }
+      66% {
+        stroke: #fffa6b;
+      }
+    }
+
+    body {
+      background-color: #eee;
+    }
+
+    .preloader {
+      width: 100%;
+      height: 100%;
+      top: 0px;
+      position: fixed;
+      z-index: 99999;
+      background: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="preloader" id="preloader">
+    <div class="loader">
+      <svg class="circular" viewBox="25 25 50 50">
+        <circle
+          class="path"
+          cx="50"
+          cy="50"
+          r="20"
+          fill="none"
+          stroke-width="2"
+          stroke-miterlimit="10"
+        />
+      </svg>
+    </div>
+  </div>
+
+  <script id="preloader-script">
+    function removeSafe(id) {
+      if (document.getElementById(id)) {
+        document.getElementById(id).remove();
+      }
+    }
+
+    function verifyIsLoaded() {
+      if (document.getElementsByTagName("flt-glass-pane").length == 1) {
+        removeSafe("preloader");
+        removeSafe("preloader-style");
+        removeSafe("preloader-viewport");
+        removeSafe("preloader-script");
+      } else {
+        setTimeout(verifyIsLoaded, 500);
+      }
+    }
+    verifyIsLoaded();
+  </script>
+
+  <!-- This script installs service_worker.js to provide PWA functionality to
+       application. For more information, see:
+       https://developers.google.com/web/fundamentals/primers/service-workers -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('flutter_service_worker.js');
+      });
+    }
+  </script>
+  <script src="main.dart.js" type="application/javascript"></script>
+</body>
+</html>
